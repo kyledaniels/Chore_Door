@@ -8,6 +8,11 @@ let numClosedDoors = 3;
 let openDoor1;
 let openDoor2;
 let openDoor3;
+let closedDoorPath = 'https://content.codecademy.com/projects/chore-door/images/closed_door.svg';
+
+const isClicked = (door)=>{
+
+}
 
 const playDoor = ()=>{
      numClosedDoors--
