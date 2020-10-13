@@ -35,14 +35,17 @@ const randomChoreDoorGenerator = ()=>{
 
 door1.onclick = ()=>{
    doorImage1.src = openDoor1;
+   playDoor();
 };
 
 door2.onclick = ()=>{
     doorImage2.src = openDoor2;
+    playDoor();
  };
 
  door3.onclick = ()=>{
     doorImage3.src = openDoor3;
+    playDoor();
  };
 
 randomChoreDoorGenerator();
