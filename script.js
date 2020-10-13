@@ -9,6 +9,13 @@ let openDoor1;
 let openDoor2;
 let openDoor3;
 
+const playDoor = ()=>{
+     numClosedDoors--
+     if(numClosedDoors === 0){
+          gameOver();
+     }
+}
+
 const randomChoreDoorGenerator = ()=>{
     let choreDoor = Math.floor(Math.random()*numClosedDoors);
       if(choreDoor===0){
