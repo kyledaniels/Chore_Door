@@ -11,7 +11,11 @@ let openDoor3;
 let closedDoorPath = 'https://content.codecademy.com/projects/chore-door/images/closed_door.svg';
 
 const isClicked = (door)=>{
-
+    if(door===closedDoorPath){
+         return false;
+    }else{
+         return true;
+    }
 }
 
 const playDoor = ()=>{
