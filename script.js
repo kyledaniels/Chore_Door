@@ -11,7 +11,7 @@ let openDoor3;
 let closedDoorPath = 'https://content.codecademy.com/projects/chore-door/images/closed_door.svg';
 
 const isClicked = (door)=>{
-    if(door===closedDoorPath){
+    if(door.src===closedDoorPath){
          return false;
     }else{
          return true;
@@ -43,18 +43,24 @@ const randomChoreDoorGenerator = ()=>{
 }
 
 door1.onclick = ()=>{
-   doorImage1.src = openDoor1;
+     if(!isClicked(doorImage1)) {
+      doorImage1.src = openDoor1;
    playDoor();
+}
 };
 
 door2.onclick = ()=>{
+     if(!isClicked(doorImage2)){
     doorImage2.src = openDoor2;
     playDoor();
+ }
  };
 
  door3.onclick = ()=>{
+     if(!isClicked(doorImage3)){
     doorImage3.src = openDoor3;
     playDoor();
+ }
  };
 
 randomChoreDoorGenerator();
