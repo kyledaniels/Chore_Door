@@ -10,6 +10,15 @@ let openDoor2;
 let openDoor3;
 let closedDoorPath = 'https://content.codecademy.com/projects/chore-door/images/closed_door.svg';
 const startButton = document.getElementById('start');
+let currentlyPlaying = true;
+
+const isBot = (door)=>{
+     if(door.src===botDoorPath){
+           return true;
+     }else{
+           return false;
+     }
+}
 
 const isClicked = (door)=>{
     if(door.src===closedDoorPath){
@@ -19,10 +28,12 @@ const isClicked = (door)=>{
     }
 }
 
-const playDoor = ()=>{
+const playDoor = (door)=>{
      numClosedDoors--
      if(numClosedDoors === 0){
           gameOver('win');
+     }else if(isBot(door)){
+          gameOver();
      }
 }
 
@@ -44,23 +55,23 @@ const randomChoreDoorGenerator = ()=>{
 }
 
 door1.onclick = ()=>{
-     if(!isClicked(doorImage1)) {
+     if(currentlyPlaying && !isClicked(door1)) {
       doorImage1.src = openDoor1;
-   playDoor();
+   playDoor(door1);
 }
 };
 
 door2.onclick = ()=>{
-     if(!isClicked(doorImage2)){
+     if(currentlyPlaying && !isClicked(door2)){
     doorImage2.src = openDoor2;
-    playDoor();
+    playDoor(door2);
  }
  };
 
  door3.onclick = ()=>{
-     if(!isClicked(doorImage3)){
+     if(currentlyPlaying && !isClicked(door3)){
     doorImage3.src = openDoor3;
-    playDoor();
+    playDoor(door3);
  }
  };
 
@@ -68,8 +79,9 @@ door2.onclick = ()=>{
      if (status === 'win') {
       startButton.innerHTML = 'You win! Play again?';
         }else{
-
+      startButton.innerHTML = 'Game over! Play again?';
       }
+      currentlyPlaying =  false;
  }
 
 randomChoreDoorGenerator();
