@@ -75,15 +75,21 @@ door2.onclick = ()=>{
  }
  };
 
- start.onclick = ()=>{
-     startRound()
+ startButton.onclick = ()=>{
+     if(!currentlyPlaying) {
+          startRound()
+     }
+     
  }
 
  const startRound = ()=>{
     numClosedDoors=3;
     doorImage1.src=closedDoorPath;
+    doorImage2.src=closedDoorPath;
+    doorImage3.src=closedDoorPath;
     startButton.innerHTML='Good luck!';
     currentlyPlaying=true;
+    randomChoreDoorGenerator();
  }
 
  const gameOver = (status)=>{
@@ -95,4 +101,4 @@ door2.onclick = ()=>{
       currentlyPlaying =  false;
  }
 
-randomChoreDoorGenerator();
+startRound();
