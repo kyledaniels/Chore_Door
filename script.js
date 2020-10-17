@@ -79,6 +79,13 @@ door2.onclick = ()=>{
      startRound()
  }
 
+ const startRound = ()=>{
+    numClosedDoors=3;
+    doorImage1.src=closedDoorPath;
+    startButton.innerHTML='Good luck!';
+    currentlyPlaying=true;
+ }
+
  const gameOver = (status)=>{
      if (status === 'win') {
       startButton.innerHTML = 'You win! Play again?';
